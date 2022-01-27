@@ -13,13 +13,13 @@ background-color:#F2F2F2;
 margin-top:57px;
 flex-direction:row;
 justify-content:space-between;
-margin: 57px 178px 88px 178px;
+margin: 57px 100px 88px 178px;
 padding:20px;
 `
 export const SecInfo=styled.div`
-display: flex;
-flex-flow:row wrap;
-justify-content:space-around;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
 background-color:#F2F2F2;
 height: 644px;
 width: 765px;
