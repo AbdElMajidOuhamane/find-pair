@@ -11,113 +11,50 @@ import {Container,
   ButtonRestart,
   TotalScore,
 Span,Line,DropDown,OptionPair,Pt,OptionSize} from "./components/styles/Container.style";
+import SingleCard from "./components/SingleCard";
 import {useState} from "react"
+
+const cardImages=[
+  {"src":"/img/Rectangle-1.png",matched:false},
+  {"src":"/img/Rectangle-2.png",matched:false},
+  {"src":"/img/Rectangle-3.png",matched:false},
+  {"src":"/img/Rectangle-4.png",matched:false},
+  {"src":"/img/Rectangle-5.png",matched:false},
+  {"src":"/img/Rectangle-6.png",matched:false},
+  {"src":"/img/Rectangle-7.png",matched:false},
+  {"src":"/img/Rectangle-8.png",matched:false},
+  {"src":"/img/Rectangle-9.png",matched:false},
+  {"src":"/img/Rectangle-10.png",matched:false}
+ 
+]
 
 function App() {
 
 
+  const [cards,setCards]=useState([])
+  const [turns,setTurns] =useState(0)
+ 
+ 
+  const shuffeldCards=()=>{
+    const shuffeldCards =[...cardImages,...cardImages]
+        .sort(()=>Math.random() - 0.5)
+        .map((card)=>({...card, id:Math.random()}))
+        setCards(shuffeldCards)
+        setTurns(0)
+      }
+    
+
   return (
     <div className="App">
-    <Title>Find Pair</Title>
+    <Title>Find the pairs</Title>
     <Container>
       <SecInfo>
-      <CardFlip>
-        <UnknowCard>
-          ?
-        </UnknowCard>
-   
-      </CardFlip>
-      <CardFlip>
-        <UnknowCard>
-          ?
-        </UnknowCard>
-   
-      </CardFlip>
-      <CardFlip>
-        <UnknowCard>
-          ?
-        </UnknowCard>
-   
-      </CardFlip>
-      <CardFlip>
-        <UnknowCard>
-          ?
-        </UnknowCard>
-   
-      </CardFlip>
-      <CardFlip>
-        <UnknowCard>
-          ?
-        </UnknowCard>
-   
-      </CardFlip>
-      <CardFlip>
-        <UnknowCard>
-          ?
-        </UnknowCard>
-   
-      </CardFlip>
-      <CardFlip>
-        <UnknowCard>
-          ?
-        </UnknowCard>
-   
-      </CardFlip>
-      <CardFlip>
-        <UnknowCard>
-          ?
-        </UnknowCard>
-   
-      </CardFlip>
-      <CardFlip>
-        <UnknowCard>
-          ?
-        </UnknowCard>
-   
-      </CardFlip>
-      <CardFlip>
-        <UnknowCard>
-          ?
-        </UnknowCard>
-   
-      </CardFlip>
-      <CardFlip>
-        <UnknowCard>
-          ?
-        </UnknowCard>
-   
-      </CardFlip>
-      <CardFlip>
-        <UnknowCard>
-          ?
-        </UnknowCard>
-   
-      </CardFlip>
-      <CardFlip>
-        <UnknowCard>
-          ?
-        </UnknowCard>
-   
-      </CardFlip>
-      <CardFlip>
-        <UnknowCard>
-          ?
-        </UnknowCard>
-   
-      </CardFlip>
-      <CardFlip>
-        <UnknowCard>
-          ?
-        </UnknowCard>
-   
-      </CardFlip>
-      <CardFlip>
-        <UnknowCard>
-          ?
-        </UnknowCard>
-   
-      </CardFlip>
-   
+      {cards.map(card=>(
+         <SingleCard key={card.id}
+          card={card}
+           />
+        ))}
+     
     </SecInfo>
     <Score>
       <ScoreBar>
@@ -137,7 +74,7 @@ function App() {
               <OptionPair>15 pairs</OptionPair>
               </DropDown>
               </OptionSize>
-              <ButtonRestart>
+              <ButtonRestart  onClick={shuffeldCards}>
                 <Pt>Restart</Pt>
               </ButtonRestart>
       </OptionScore>

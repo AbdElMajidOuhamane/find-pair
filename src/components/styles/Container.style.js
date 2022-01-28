@@ -4,29 +4,46 @@ export const Title=styled.h1`
 display:flex;
 justify-content:center;
 align-items:center;
+height: 55px;
+font-family: Nunito;
+font-style: normal;
+font-weight: bold;
+font-size: 40px;
+color: #232527;
+margin-top:56px ;
 `
 
 
 export const Container=styled.div`
 display: flex;
-background-color:#F2F2F2;
-margin-top:57px;
 flex-direction:row;
 justify-content:space-between;
-margin: 57px 100px 88px 178px;
+margin: 0 178px 88px 178px;
 padding:20px;
+position: absolute;
+
 `
 export const SecInfo=styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
-background-color:#F2F2F2;
-height: 644px;
 width: 765px;
+height: 644px;
+
+
+
 
 `
+export const Card=styled.div`
+height: 146px;
+width: 137px;
+border: none;
+border-radius:4px;
+position: relative;
+cursor:pointer;
+`
 
-export const CardFlip=styled.button`
+export const CardFlip=styled.div`
 display:flex;
 justify-content:center;
 align-items:center;
@@ -35,6 +52,7 @@ width: 137px;
 border: none;
 background-color:#1890FF ;
 border-radius:4px;
+
 `
 export const UnknowCard=styled.p`
 text-align:center;
@@ -43,6 +61,7 @@ font-style: normal;
 font-weight: bold;
 font-size: 50px;
 color: #FFFFFF;
+
 `
 
 
@@ -170,5 +189,10 @@ export const Pt=styled.p`
 font-family: Open Sans;
 color: #FFFFFF;
 
+
+`
+export const ImageF=styled.img`
+width: 100%;
+display: block;
 
 `
